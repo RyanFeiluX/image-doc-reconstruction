@@ -910,6 +910,12 @@ class ImageDocReconstructor:
         return blocks
 
 
+
+# Environment variable names for Baidu OCR credentials
+ENV_BAIDU_APP_ID = 'BAIDU_OCR_APP_ID'
+ENV_BAIDU_API_KEY = 'BAIDU_OCR_API_KEY'
+ENV_BAIDU_SECRET_KEY = 'BAIDU_OCR_SECRET_KEY'
+
 def main():
     parser = argparse.ArgumentParser(description='图片文档重建工具（百度OCR API）')
     parser.add_argument('--input', '-i', required=True, help='输入PDF文件路径')
@@ -931,9 +937,9 @@ def main():
     
     args = parser.parse_args()
     
-    app_id = args.app_id or os.environ.get('BAIDU_OCR_APP_ID')
-    api_key = args.api_key or os.environ.get('BAIDU_OCR_API_KEY')
-    secret_key = args.secret_key or os.environ.get('BAIDU_OCR_SECRET_KEY')
+    app_id = args.app_id or os.environ.get(ENV_BAIDU_APP_ID)
+    api_key = args.api_key or os.environ.get(ENV_BAIDU_API_KEY)
+    secret_key = args.secret_key or os.environ.get(ENV_BAIDU_SECRET_KEY)
     
     if not app_id or not api_key or not secret_key:
         print("错误：缺少百度OCR API凭证")

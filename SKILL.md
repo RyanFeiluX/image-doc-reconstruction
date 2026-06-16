@@ -29,7 +29,7 @@ metadata:
 
 ## 前置准备
 
-### 1. 百度OCR API凭证
+### 1. 获取百度OCR凭证
 
 在 [百度智能云控制台](https://console.bce.baidu.com/ai/) 创建"通用文字识别"应用，获取三个凭证：
 
@@ -39,17 +39,15 @@ metadata:
 | API Key | `BAIDU_OCR_API_KEY` | API密钥 |
 | Secret Key | `BAIDU_OCR_SECRET_KEY` | 加密密钥 |
 
-配置方式（二选一）：
+配置方式：将凭证设为环境变量（例如写入 `~/.hermes/.env`）。
 
-**方式A：** 编辑 `~/.hermes/.env` 文件，添加以下内容（随 Hermes 自动加载）：
-```
-BAIDU_OCR_APP_ID="your_app_id"
-BAIDU_OCR_API_KEY="your...port BAIDU_OCR_SECRET_KEY="your...```
-
-**方式B：** 环境变量（临时）
 ```bash
 export BAIDU_OCR_APP_ID="your_app_id"
-export BAIDU_OCR_API_KEY="your...ort BAIDU_OCR_SECRET_KEY="your...```
+export BAIDU_OCR_API_KEY="your_api_key"
+export BAIDU_OCR_SECRET_KEY="your_secret_key"
+```
+
+也支持通过 `--app-id / --api-key / --secret-key` 命令行参数传入。
 
 ### 2. 安装依赖
 
