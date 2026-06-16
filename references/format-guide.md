@@ -120,9 +120,9 @@ We propose a novel approach for document reconstruction...
 python scripts/reconstruct.py \
   --input ./paper.pdf \
   --output ./paper.md \
-  --app-id 121973148 \
-  --api-key ltECE7t3xVfv8WmovjVSEMcF \
-  --secret-key g8RKsh1RrBZqIjgep8s1kiMpNpNWJcwz \
+  --app-id YOUR_APP_ID \
+  --api-key YOUR_API_KEY \
+  --secret-key YOUR_SECRET_KEY \
   --include-figures \
   --language ch
 ```
@@ -132,9 +132,9 @@ python scripts/reconstruct.py \
 python scripts/reconstruct.py \
   --input ./manual.pdf \
   --output ./manual.md \
-  --app-id 121973148 \
-  --api-key ltECE7t3xVfv8WmovjVSEMcF \
-  --secret-key g8RKsh1RrBZqIjgep8s1kiMpNpNWJcwz \
+  --app-id YOUR_APP_ID \
+  --api-key YOUR_API_KEY \
+  --secret-key YOUR_SECRET_KEY \
   --no-figures \
   --language en \
   --figures-dir ./my_figures
@@ -143,9 +143,9 @@ python scripts/reconstruct.py \
 #### 示例3：使用环境变量配置凭证
 ```bash
 # 设置环境变量
-export BAIDU_OCR_APP_ID="121973148"
-export BAIDU_OCR_API_KEY="ltECE7t3xVfv8WmovjVSEMcF"
-export BAIDU_OCR_SECRET_KEY="g8RKsh1RrBZqIjgep8s1kiMpNpNWJcwz"
+export BAIDU_OCR_APP_ID="YOUR_APP_ID"
+export BAIDU_OCR_API_KEY="YOUR_API_KEY"
+export BAIDU_OCR_SECRET_KEY="YOUR_SECRET_KEY"
 
 # 执行转换（无需再次传递API凭证参数）
 python scripts/reconstruct.py \

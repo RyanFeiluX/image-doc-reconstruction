@@ -41,17 +41,15 @@ metadata:
 
 配置方式（二选一）：
 
-```bash
-# 方式A：添加到 ~/.hermes/.env（推荐，随Hermes自动加载）
-echo 'BAIDU_OCR_APP_ID="your_app_id"' >> ~/.hermes/.env
-echo 'BAIDU_OCR_API_KEY="your_api_key"' >> ~/.hermes/.env
-echo 'BAIDU_OCR_SECRET_KEY="your_secret_key"' >> ~/.hermes/.env
-
-# 方式B：环境变量（临时）
-export BAIDU_OCR_APP_ID="your_app_id"
-export BAIDU_OCR_API_KEY="your_api_key"
-export BAIDU_OCR_SECRET_KEY="your_secret_key"
+**方式A：** 编辑 `~/.hermes/.env` 文件，添加以下内容（随 Hermes 自动加载）：
 ```
+BAIDU_OCR_APP_ID="your_app_id"
+BAIDU_OCR_API_KEY="your...port BAIDU_OCR_SECRET_KEY="your...```
+
+**方式B：** 环境变量（临时）
+```bash
+export BAIDU_OCR_APP_ID="your_app_id"
+export BAIDU_OCR_API_KEY="your...ort BAIDU_OCR_SECRET_KEY="your...```
 
 ### 2. 安装依赖
 
@@ -59,7 +57,7 @@ export BAIDU_OCR_SECRET_KEY="your_secret_key"
 pip install PyMuPDF Pillow baidu-aip
 ```
 
-> 无需 poppler-utils / sudo，PyMuPDF 直接渲染 PDF 页面。
+> PyMuPDF 直接渲染 PDF 页面为图片，无需额外系统依赖。
 
 ### 3. 验证安装
 
