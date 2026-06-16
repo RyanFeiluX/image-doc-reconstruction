@@ -39,7 +39,7 @@ metadata:
 | API Key | `BAIDU_OCR_API_KEY` | API密钥 |
 | Secret Key | `BAIDU_OCR_SECRET_KEY` | 加密密钥 |
 
-配置方式：将凭证设为环境变量（例如写入 `~/.hermes/.env`）。
+配置方式：设置以下环境变量。
 
 ```bash
 export BAIDU_OCR_APP_ID="your_app_id"

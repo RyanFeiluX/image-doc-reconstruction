@@ -7,7 +7,7 @@
 
 Hermes适配修改：
 1. 用PyMuPDF替代pdf2image渲染PDF页面（无需poppler-utils sudo依赖）
-2. 支持从环境变量读取百度OCR凭证（BAIDU_OCR_APP_ID / API_KEY / SECRET_KEY）
+2. 支持从环境变量读取百度OCR凭证
 3. 便捷调用命令：pdf2md-baidu
 """
 
@@ -920,9 +920,9 @@ def main():
     parser = argparse.ArgumentParser(description='图片文档重建工具（百度OCR API）')
     parser.add_argument('--input', '-i', required=True, help='输入PDF文件路径')
     parser.add_argument('--output', '-o', required=True, help='输出Markdown文件路径')
-    parser.add_argument('--app-id', help='百度OCR APP_ID（或环境变量 BAIDU_OCR_APP_ID）')
-    parser.add_argument('--api-key', help='百度OCR API Key（或环境变量 BAIDU_OCR_API_KEY）')
-    parser.add_argument('--secret-key', help='百度OCR Secret Key（或环境变量 BAIDU_OCR_SECRET_KEY）')
+    parser.add_argument('--app-id', help='百度OCR APP_ID（或对应环境变量）')
+    parser.add_argument('--api-key', help='百度OCR API Key（或对应环境变量）')
+    parser.add_argument('--secret-key', help='百度OCR Secret Key（或对应环境变量）')
     parser.add_argument('--include-figures', action='store_true', default=True, help='包含插图（默认True）')
     parser.add_argument('--no-figures', dest='include_figures', action='store_false', help='不包含插图')
     parser.add_argument('--embed-figures', action='store_true', default=True, help='嵌入图片到Markdown（默认Base64嵌入）')
@@ -945,7 +945,7 @@ def main():
         print("错误：缺少百度OCR API凭证")
         print("请通过以下方式提供：")
         print("  方式一：命令行参数 --app-id, --api-key, --secret-key")
-        print("  方式二：环境变量 BAIDU_OCR_APP_ID, BAIDU_OCR_API_KEY, BAIDU_OCR_SECRET_KEY")
+        print("  方式二：设置对应的环境变量（详见 README）")
         print("\n获取凭证：https://console.bce.baidu.com/ai/")
         sys.exit(1)
     
