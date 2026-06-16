@@ -1,0 +1,13 @@
+#!/bin/bash
+# Hermes image-doc-reconstruction 便捷调用脚本
+# 使用Hermes venv中的Python运行，自动读取环境变量
+
+HERMES_PYTHON="${HERMES_HOME:-$HOME/.hermes}/hermes-agent/venv/bin/python"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPT="$SCRIPT_DIR/reconstruct.py"
+
+if [ ! -f "$HERMES_PYTHON" ]; then
+    HERMES_PYTHON="python3"
+fi
+
+exec "$HERMES_PYTHON" "$SCRIPT" "$@"
