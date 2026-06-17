@@ -92,11 +92,26 @@ python scripts/reconstruct.py -i doc.pdf -o out.md --language en
 
 ## 📦 安装为 Hermes 技能
 
-### 方式一：手动安装
+### 方式一：通过 tap 安装（推荐）
 
 ```bash
-mkdir -p ~/.hermes/skills/productivity/image-doc-reconstruction
-cp -r * ~/.hermes/skills/productivity/image-doc-reconstruction/
+# 添加 tap 源
+hermes skills tap add RyanFeiluX/image-doc-reconstruction
+
+# 安装技能
+hermes skills install image-doc-reconstruction
+```
+
+### 方式二：直接 URL 安装
+
+```bash
+hermes skills install https://raw.githubusercontent.com/RyanFeiluX/image-doc-reconstruction/main/skills/image-doc-reconstruction/SKILL.md
+```
+
+### 方式三：手动安装
+
+```bash
+cp -r skills/image-doc-reconstruction ~/.hermes/skills/productivity/
 pip install -r requirements.txt
 ```
 
@@ -111,19 +126,21 @@ hermes skills install image-doc-reconstruction
 
 ```
 image-doc-reconstruction/
-├── SKILL.md              # Hermes 技能描述
+├── skills/
+│   └── image-doc-reconstruction/    # Hermes 技能包
+│       ├── SKILL.md                 # 技能描述
+│       ├── scripts/
+│       │   ├── reconstruct.py       # 核心引擎（PDF渲染+OCR+后处理）
+│       │   └── pdf2md-baidu         # CLI 快捷命令
+│       ├── references/
+│       │   ├── format-guide.md
+│       │   ├── header-footer-detection.md
+│       │   └── figure-detection.md
+│       └── assets/
+│           └── templates/
 ├── README.md             # 本文件
-├── requirements.txt      # Python 依赖（baidu-aip, PyMuPDF, Pillow）
-├── scripts/
-│   ├── reconstruct.py    # 核心引擎（PDF渲染+OCR+后处理）
-│   └── pdf2md-baidu      # CLI 快捷命令
-├── references/
-│   ├── format-guide.md          # Markdown格式规范
-│   ├── header-footer-detection.md  # 页眉页脚检测算法
-│   └── figure-detection.md      # 插图提取说明
-└── assets/
-    └── templates/
-        └── markdown-template.md
+├── requirements.txt      # Python 依赖
+└── LICENSE               # MIT License
 ```
 
 ## 🔄 与Qwen VL版对比
